@@ -1,257 +1,102 @@
-:root {
-    --ini_distancia-vertical-comp: 7vw;
-    --distancia-vertical-comp: 6vw;
-    --ini_distancia-horizontal-comp: 41vh;
-    --distancia-horizontal-comp: 22vh;
+.body {
+    background: rgb(0,158,74);
+    background: linear-gradient(0deg, rgb(0, 158, 74) 1%, rgb(1, 0, 70) 23%);
+}
 
-    --ini_distancia-vertical-comp-dos: 10vw;
-    --distancia-vertical-comp-dos: 3.5vw;
-    --ini_distancia-horizontal-comp-dos: 78vh;
-    --distancia-horizontal-comp-dos: 28vh;
+.texto_titulos {
+    color: #ececec; /* Cambia el color del texto a rojo */
 }
 
 
-.header {
-    /* Ancho del 100% del contenedor padre (la ventana) */
-    width: 100%; 
-    /* Altura de 100 píxeles (ajusta según tus necesidades) */
-    height: 8vh; 
-    background-color: #fff; /* Fondo blanco */
+.list {
+    display: flex;
+    gap: 8px;
+    padding: 16px;
+  
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+  
+
+.list {
+    /* ... */
+
+    /* Hide scrollbar in Firefox */
+    scrollbar-width: none;
+
+    /* Hide scrollbar in IE and Edge */
+    -ms-overflow-style: none;
+}
+
+/* Hide scrollbar in webkit */
+.list::-webkit-scrollbar {
+    display: none;
 }
 
 
-body {
-    /* Cambia los colores del degrade */
-    background: linear-gradient(to bottom, #240119, #840994); 
-    /* Fija el fondo */
-    background-attachment: fixed; 
-    /* Ajusta el tamaño del fondo para cubrir toda la página */
-    background-size: cover; 
-    /* Evita que se repita el fondo */
-    background-repeat: no-repeat; 
+.list-wrapper {
+    max-width: 80vw; /* Ajusta este valor según el ancho máximo deseado */
+    height: 50vh; /* Establece la altura del div al 40% de la altura del viewport */
+    background-color: rgba(173, 216, 230, 0.2); /* lightblue con 50% de opacidad */
+    padding: 20px; /* Espacio interno del contenido del div (ejemplo) */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    overflow: hidden; /* Oculta el contenido que se desborde */
+    border: 2px solid #8B4513; /* Color marrón utilizando formato hexadecimal */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px; /* Espacio interno dentro del borde */
 }
 
 
-.staircase-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
+.item {
+    flex-shrink: 0;
+    width: 50vh;
+    height: 25vh;
+
+    background-color: #FFF;
+
+    scroll-snap-align: center;
 }
 
-
-.skill-component {
-    /* Establece el ancho del elemento al 10% del ancho de la ventana */
-    width: 15vw;
-    /* Establece la altura del elemento al 10% de la altura de la ventana */
-    height: 10vh;
-    /* Agrega un borde al elemento con un grosor y un color */
-    border: 0.2vw solid #ff0000;
-    /* Aplica un radio de borde para hacer que el elemento tenga una forma de círculo */
-    border-radius: 42%;
-    /* Centra el contenido del elemento horizontalmente */
-    text-align: center;
-    /* Establece la altura de la línea interna para centrar verticalmente el contenido */
-    line-height: 10vh;
-    /* Cambia el cursor al puntero cuando se pasa sobre el elemento (indicando que es interactivo) */
-    cursor: pointer;    
-    position: absolute;    
-    /* Cambia el tipo de letra a "Arial" o a tu elección */
-    font-family: "Consolas", sans-serif; 
-    /* Cambia el tamaño de fuente a tu elección (ejemplo: 1.5rem) */    
-    font-size: 1.4rem; 
-    /* Evitar que el texto se desborde */
-    overflow: hidden;
-    word-wrap: break-word;
-    /* Ajusta la alineación vertical de cada componente */
-    align-self: flex-end;
-        /* Aplicar negrita al texto */
-        font-weight: bold;
+.zoomable-image {
+    cursor: pointer; /* Cambia el cursor al hacer hover */
+    transition: transform 1s ease; /* Agrega una transición suave */
 }
 
-
-/* Establece la posición de cada componente en la escalera */
-.skill-component:nth-child(1) {
-    left: var(--ini_distancia-horizontal-comp);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: var(--ini_distancia-vertical-comp);
-}
-
-.skill-component:nth-child(2) {
-    left: calc(var(--ini_distancia-horizontal-comp) + var(--distancia-horizontal-comp));
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp) + var(--distancia-vertical-comp));
-}
-
-.skill-component:nth-child(3) {
-    left: calc(var(--ini_distancia-horizontal-comp) + var(--distancia-horizontal-comp)*2);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp) + var(--distancia-vertical-comp) * 2);
-}
-
-.skill-component:nth-child(4) {
-    left: calc(var(--ini_distancia-horizontal-comp) + var(--distancia-horizontal-comp)*3);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp) + var(--distancia-vertical-comp)*3);
-}
-
-.skill-component:nth-child(5) {
-    left: calc(var(--ini_distancia-horizontal-comp) + var(--distancia-horizontal-comp)*4);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp) + var(--distancia-vertical-comp)*4);
-}
-
-
-.line-container {
+.zoomable-image:hover {
     position: absolute;
-    width: 100%;
-    height: 100vh;
+    transform: scale(0.8); /* Aumenta el tamaño al hacer hover */
+    top: 5vh; /* Posiciona la parte superior del elemento en la mitad de la ventana */
+    left: 20vw; /* Posiciona la izquierda del elemento en la mitad de la ventana */
+    /* z-index: 1000; Asegura que esté por encima de otros elementos */
 }
 
 
-.skill-component-dos {
-    /* Establece el ancho del elemento al 10% del ancho de la ventana */
-    width: 13vw;
-    /* Establece la altura del elemento al 10% de la altura de la ventana */
-    height: 6vh;
-    /* Agrega un borde al elemento con un grosor y un color */
-    border: 0.2vw solid #ff0000;
-    /* Aplica un radio de borde para hacer que el elemento tenga una forma de círculo */
-    border-radius: 20%;
-    /* Centra el contenido del elemento horizontalmente */
-    text-align: center;
-    /* Establece la altura de la línea interna para centrar verticalmente el contenido */
-    line-height: 6vh;
-    /* Cambia el cursor al puntero cuando se pasa sobre el elemento (indicando que es interactivo) */
-    cursor: pointer;
-    position: relative;    
-    /* Cambia el color del texto dentro del elemento a blanco (#ffffff) */
-    color: #000000;
-    /* Cambia el tipo de letra a "Arial" o a tu elección */
-    font-family: "Consolas", sans-serif; 
-    /* Cambia el tamaño de fuente a tu elección (ejemplo: 1.5rem) */    
-    font-size: 1.4rem; 
-    /* Evitar que el texto se desborde */
-    overflow: hidden;
-    word-wrap: break-word;
-    /* Ajusta la alineación vertical de cada componente */
-    align-self: flex-end;
-    /* Utiliza la imagen ubicada en la carpeta "static" como fondo */
-    background-image: url('/static/1.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    /* Aplicar negrita al texto */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    font-family: sans-serif;
+    font-size: 64px;
     font-weight: bold;
 }
 
-
-.skill-component-dos:nth-child(1) {
-    left: var(--ini_distancia-horizontal-comp-dos);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: var(--ini_distancia-vertical-comp-dos);
+.content {
+    width: 100%; /* Ajustar al ancho máximo del contenedor */
+    height: 100%; /* Ajustar al alto máximo del contenedor */
+    display: flex;
+    align-items: center; /* Alinear verticalmente al centro */
+    justify-content: center; /* Alinear horizontalmente al centro */
+    overflow: hidden; /* Ocultar el desbordamiento de la imagen */
 }
-  
 
-.skill-component-dos:nth-child(2) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos));
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos));
+.content img {
+    max-width: 100%; /* Ajustar imagen al ancho máximo del contenedor */
+    max-height: 100%; /* Ajustar imagen al alto máximo del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    width: auto; /* Mantener la proporción de la imagen */
+    object-fit: cover; /* Cubrir el contenedor manteniendo la relación de aspecto */
 }
-  
 
-.skill-component-dos:nth-child(3) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*2);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*2);
-}
-  
-
-.skill-component-dos:nth-child(4) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*3);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*3);
-}
-  
-
-.skill-component-dos:nth-child(5) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*0.5);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*5);
-}
-  
-
-.skill-component-dos:nth-child(6) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*(1.5));
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*6);
-}
-  
-
-.skill-component-dos:nth-child(7) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*2.5);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*7);
-}
-  
-
-.skill-component-dos:nth-child(8) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos));
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*9);
-}
-  
-
-.skill-component-dos:nth-child(9) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*2);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*10);
-}
-  
-
-.skill-component-dos:nth-child(10) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*3);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*11);
-}
-  
-
-.skill-component-dos:nth-child(11) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*1.5);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*13);
-}
-  
-
-.skill-component-dos:nth-child(12) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*2.5);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*14);
-}
-  
-
-.skill-component-dos:nth-child(13) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*2);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*16);
-}
-  
-
-.skill-component-dos:nth-child(14) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*3);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*17);
-}
-  
-
-.skill-component-dos:nth-child(15) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*2.5);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*19);
-}
-  
-
-.skill-component-dos:nth-child(16) {
-    left: calc(var(--ini_distancia-horizontal-comp-dos)  + var(--distancia-horizontal-comp-dos)*3);
-    /* Variar el valor de la distancia vertical entre componentes */
-    bottom: calc(var(--ini_distancia-vertical-comp-dos) + var(--distancia-vertical-comp-dos)*21);
-}

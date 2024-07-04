@@ -1,67 +1,51 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
-    <!-- Referenciar el archivo .css para usar como estilos en el index.html de la aplicación -->
-    <link rel="stylesheet" href="{% static 'styles.css' %}">    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>YMRG</title>
 </head>
+<body class="body">
+    <!-- Perfil profesional -->
+    <div>
+        <!-- Costado derecho: foto -->
 
-<header class="header"></header>
-
-<body>
-
-    <div class="staircase-container">
-        <div class="skill-component" data-skill="About me" style="background-color: #ff0000; color: #ffffff;">About me</div>
-        <div class="skill-component" data-skill="Estudio" style="background-color: #ff7b00; color: #ffffff;">Estudio</div>
-        <div class="skill-component" data-skill="Certificaciones" style="background-color: #eeff00; color: #000000;">Certificaciones</div>
-        <div class="skill-component" data-skill="Dashboards" style="background-color: #91ff00; color: #000000;">Dashboards</div>
-        <div class="skill-component" data-skill="Proyectos" style="background-color: #00ff2a; color: #000000;">Proyectos</div>
-    </div>
-        
-    <div class="line-container">
-        <div class="skill-component-dos" data-skill="Solf Skills" >Solf Skills</div>
-        <div class="skill-component-dos" data-skill="Business Skills" style="line-height: 0.8; text-align: center;">Business Skills</div>
-        <div class="skill-component-dos" data-skill="Pedagogía">Pedagogía</div>
-        <div class="skill-component-dos" data-skill="Electrónica">Electrónica</div>
-        <div class="skill-component-dos" data-skill="Álgebra lineal">Álgebra lineal</div>
-        <div class="skill-component-dos" data-skill="Cálculo">Cálculo</div>
-        <div class="skill-component-dos" data-skill="Teoría de la probabilidad" style="line-height: 0.8; text-align: center;">Teoría de la probabilidad</div>
-        <div class="skill-component-dos" data-skill="Estadística">Estadística</div>
-        <div class="skill-component-dos" data-skill="Bases de datos">Bases de datos</div>
-        <div class="skill-component-dos" data-skill="Análisis de datos" style="line-height: 0.8; text-align: center;">Análisis de datos</div>
-        <div class="skill-component-dos" data-skill="Python">Python</div>
-        <div class="skill-component-dos" data-skill="Power BI">Power BI</div>
-        <div class="skill-component-dos" data-skill="Big Data">Big Data</div>
-        <div class="skill-component-dos" data-skill="Inglés B1">Inglés B1</div>
-        <div class="skill-component-dos" data-skill="Aprendizaje Automático" style="line-height: 0.8; text-align: center;">Aprendizaje Automático</div>
-        <div class="skill-component-dos" data-skill="Azure Cloud">Azure Cloud</div>
+        <!-- Costado izquierdo: descripción breve -->
     </div>
     
+    <!-- Educación -->
+    <div>
+        <!-- slider -->
+    </div>
 
-    <script>
-        const skillComponents = document.querySelectorAll(".skill-component");
-    
-        skillComponents.forEach((component) => {
-            component.addEventListener("click", () => {
-                const skillName = component.getAttribute("data-skill");
-                // Aquí muestra la ventana emergente con la descripción de la habilidad
-                alert(`Descripción de ${skillName}`);
-            });
-        });
+    <!-- Certificaciones -->
+    <div class="list-wrapper">
+        <h1 class="texto_titulos">Analítica de Datos</h1>
+        <ul class="list">
+            <li class="item">
+                <div class="content">
+                    <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbr6VBLeD-ybqyM6g79lZILvZOUhApGyxPIBrMeskuCEGDPcvBlYTOaxQ-QDJ20UEg8K_Wmxr_85m95yeEITcWc2_3JQ8bEl1Q=s1600-rw-v1" alt="Descripción de la imagen 1", class="zoomable-image">
+                </div>
+            </li>
+            <li class="item">
+                <div class="content">
+                    <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZTzdvQ62KwDRuitdewoHIKAIOHcF0RkPSONydhhKv1SWo3tVdsKHzMRz35_BPcl8p5j--7wbpuCU7DCXwwoPJeMkg_s4yOebI=s1600-rw-v1" alt="Descripción de la imagen 2", class="zoomable-image">
+                </div>
+            </li>
+           
+        </ul>
+        <!-- Botones para controlar el carousel -->
+        <button class="button button--previous" type="button">➜</button>
+        <button class="button button--next" type="button">➜</button>
+    </div>
 
-        const skillComponentsDos = document.querySelectorAll(".skill-component-dos");
-    
-        skillComponentsDos.forEach((component) => {
-            component.addEventListener("click", () => {
-                const skillNameDos = component.getAttribute("data-skill");
-                // Aquí muestra la ventana emergente con la descripción de la habilidad
-                alert(`Descripción de ${skillNameDos}`);
-            });
-        });
-    </script>  
+    <!-- Proyectos y dashboards -->
+    <div>
+
+    </div>
+
+    <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
