@@ -5,43 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <title>YMRG</title>
+    <title>Yohan Rodríguez</title>
 </head>
 <body class="body">
     <!-- Perfil profesional -->
+    <h1 class="texto_titulos">PERFIL</h1>
     <div>
         <!-- Costado derecho: foto -->
-
+        
         <!-- Costado izquierdo: descripción breve -->
     </div>
     
     <!-- Educación -->
+    <h1 class="texto_titulos">EDUCACIÓN</h1>
     <div>
         <!-- slider -->
     </div>
 
     <!-- Certificaciones -->
-    <div class="list-wrapper">
-        <h1 class="texto_titulos">Analítica de Datos</h1>
-        <ul class="list">
-            <li class="item">
-                <div class="content">
-                    <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbr6VBLeD-ybqyM6g79lZILvZOUhApGyxPIBrMeskuCEGDPcvBlYTOaxQ-QDJ20UEg8K_Wmxr_85m95yeEITcWc2_3JQ8bEl1Q=s1600-rw-v1" alt="Descripción de la imagen 1", class="zoomable-image">
-                </div>
-            </li>
-            <li class="item">
-                <div class="content">
-                    <img src="https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZTzdvQ62KwDRuitdewoHIKAIOHcF0RkPSONydhhKv1SWo3tVdsKHzMRz35_BPcl8p5j--7wbpuCU7DCXwwoPJeMkg_s4yOebI=s1600-rw-v1" alt="Descripción de la imagen 2", class="zoomable-image">
-                </div>
-            </li>
-           
-        </ul>
-        <!-- Botones para controlar el carousel -->
-        <button class="button button--previous" type="button">➜</button>
-        <button class="button button--next" type="button">➜</button>
+    <h1 class="texto_titulos">CERTIFICACIONES</h1>
+
+    <div>
+        <!-- Business Intelligence -->
+        <div class="list-wrapper" id="biList">
+            <h1 class="texto_titulos">Business Intelligence</h1>
+            <ul class="list">
+                {% for image in img_bi %}
+                <li class="item">
+                    <div class="content">
+                        <img src="{{ image }}" alt="Imagen" class="zoomable-image">
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <!-- Botones para controlar el carousel -->
+            <button class="button button--previous" type="button">←</button>
+            <button class="button button--next" type="button">→</button>
+        </div>
+    
+        <!-- Estadística y probabilidad -->
+        <div class="list-wrapper" id="statsList">
+            <h1 class="texto_titulos">Estadística y probabilidad</h1>
+            <ul class="list">
+                {% for image in img_stats_prob %}
+                <li class="item">
+                    <div class="content">
+                        <img src="{{ image }}" alt="Imagen" class="zoomable-image">
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <button class="button button--previous" type="button">←</button>
+            <button class="button button--next" type="button">→</button>
+        </div>
+    
+        <!-- Bases de datos -->
+        <div class="list-wrapper" id="dbList">
+            <h1 class="texto_titulos">Bases de datos</h1>
+            <ul class="list">
+                {% for image in img_db %}
+                <li class="item">
+                    <div class="content">
+                        <img src="{{ image }}" alt="Imagen" class="zoomable-image">
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <button class="button button--previous" type="button">←</button>
+            <button class="button button--next" type="button">→</button>
+        </div>
+    
+        <!-- Data analytics -->
+        <div class="list-wrapper" id="analyticsList">
+            <h1 class="texto_titulos">Analítica de Datos</h1>
+            <ul class="list">
+                {% for image in img_data_analytics %}
+                <li class="item">
+                    <div class="content">
+                        <img src="{{ image }}" alt="Imagen" class="zoomable-image">
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <button class="button button--previous" type="button">←</button>
+            <button class="button button--next" type="button">→</button>
+        </div>
+    
+        <!-- Data science -->
+        <div class="list-wrapper" id="scienceList">
+            <h1 class="texto_titulos">Ciencia de Datos</h1>
+            <ul class="list">
+                {% for image in img_data_science %}
+                <li class="item">
+                    <div class="content">
+                        <img src="{{ image }}" alt="Imagen" class="zoomable-image">
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <button class="button button--previous" type="button">←</button>
+            <button class="button button--next" type="button">→</button>
+        </div>
+    
+        <!-- Computación en la nube -->
+        <div class="list-wrapper" id="cloudList">
+            <h1 class="texto_titulos">Computación en la nube</h1>
+            <ul class="list">
+                {% for image in img_cloud %}
+                <li class="item">
+                    <div class="content">
+                        <img src="{{ image }}" alt="Imagen" class="zoomable-image">
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <button class="button button--previous" type="button">←</button>
+            <button class="button button--next" type="button">→</button>
+        </div>
     </div>
 
+
     <!-- Proyectos y dashboards -->
+    <h1 class="texto_titulos">PROYECTOS</h1>
     <div>
 
     </div>

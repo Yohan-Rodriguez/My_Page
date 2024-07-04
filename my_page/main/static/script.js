@@ -1,11 +1,16 @@
-var_analisis_de_datos = ["https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbr6VBLeD-ybqyM6g79lZILvZOUhApGyxPIBrMeskuCEGDPcvBlYTOaxQ-QDJ20UEg8K_Wmxr_85m95yeEITcWc2_3JQ8bEl1Q=s1600-rw-v1"]
-var_ciencia_de_datos = ["https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihZTzdvQ62KwDRuitdewoHIKAIOHcF0RkPSONydhhKv1SWo3tVdsKHzMRz35_BPcl8p5j--7wbpuCU7DCXwwoPJeMkg_s4yOebI=s1600-rw-v1"]
-var_databases = []
-var_bi = []
-var_cloud = []
-var_others = []
+const list = document.querySelector(".list");
+const item = document.querySelector(".item");
+const itemWidth = item.offsetWidth;
+
 
 document.addEventListener('DOMContentLoaded', function() {
+    checkCarouselButtons('biList');
+    checkCarouselButtons('statsList');
+    checkCarouselButtons('dbList');
+    checkCarouselButtons('analyticsList');
+    checkCarouselButtons('scienceList');
+    checkCarouselButtons('cloudList');
+
     const imageContainer = document.querySelector('.image-container');
 
     imageContainer.addEventListener('click', function() {
@@ -21,4 +26,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+
+function checkCarouselButtons(listId) {
+    var list = document.getElementById(listId);
+    var items = list.querySelectorAll('.list > li');
+    var prevButton = list.querySelector('.button--previous');
+    var nextButton = list.querySelector('.button--next');
+
+    if (items.length > 3) {
+        prevButton.style.display = 'block';
+        nextButton.style.display = 'block';
+    } else {
+        prevButton.style.display = 'none';
+        nextButton.style.display = 'none';
+    }
+}
+
+
+document.querySelectorAll('.list-wrapper').forEach(wrapper => {
+    const list = wrapper.querySelector(".list");
+    const item = wrapper.querySelector(".item");
+    const itemWidth = item.offsetWidth;
+
+    function handleClick(direction) {
+        if (direction === "previous") {
+            list.scrollBy({ left: -itemWidth, behavior: "smooth" });
+        } else {
+            list.scrollBy({ left: itemWidth, behavior: "smooth" });
+        }
+    }
+
+    wrapper.querySelector(".button--previous").addEventListener("click", function() {
+        handleClick('previous');
+    });
+
+    wrapper.querySelector(".button--next").addEventListener("click", function() {
+        handleClick('next');
+    });
+});
+
 

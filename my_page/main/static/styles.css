@@ -1,12 +1,17 @@
 .body {
-    background: rgb(0,158,74);
-    background: linear-gradient(0deg, rgb(0, 158, 74) 1%, rgb(1, 0, 70) 23%);
+    /* background: rgb(0,158,74);
+    background: linear-gradient(0deg, rgb(0, 158, 74) 10%, rgb(1, 0, 70) 23%); */
+    background: rgb(0,154,10);
+    background: linear-gradient(0deg, rgba(0,154,10,1) 13%, rgba(0,89,30,1) 28%, rgba(0,99,66,1) 43%, rgba(0,78,89,1) 58%, rgba(0,48,89,1) 73%, rgba(0,0,89,1) 88%);
+    background-repeat: no-repeat; /* Evita que se repita la imagen */
 }
 
 .texto_titulos {
     color: #ececec; /* Cambia el color del texto a rojo */
 }
-
+.texto_subtitulos {
+    color: #ececec; /* Cambia el color del texto a rojo */
+}
 
 .list {
     display: flex;
@@ -42,9 +47,10 @@
     padding: 20px; /* Espacio interno del contenido del div (ejemplo) */
     margin: 0 auto; /* Centra el contenedor horizontalmente */
     overflow: hidden; /* Oculta el contenido que se desborde */
-    border: 2px solid #8B4513; /* Color marrón utilizando formato hexadecimal */
+    /* border: 2px solid #8B4513; Color marrón utilizando formato hexadecimal */
     border-radius: 8px; /* Bordes redondeados */
     padding: 10px; /* Espacio interno dentro del borde */
+    margin-bottom: 3vh; /* Ajusta el valor según el espacio deseado entre cada div */
 }
 
 
@@ -60,11 +66,11 @@
 
 .zoomable-image {
     cursor: pointer; /* Cambia el cursor al hacer hover */
-    transition: transform 1s ease; /* Agrega una transición suave */
+    transition: transform 0.3s ease; /* Agrega una transición suave */
 }
 
 .zoomable-image:hover {
-    position: absolute;
+    position: fixed;
     transform: scale(0.8); /* Aumenta el tamaño al hacer hover */
     top: 5vh; /* Posiciona la parte superior del elemento en la mitad de la ventana */
     left: 20vw; /* Posiciona la izquierda del elemento en la mitad de la ventana */
@@ -99,4 +105,32 @@
     width: auto; /* Mantener la proporción de la imagen */
     object-fit: cover; /* Cubrir el contenedor manteniendo la relación de aspecto */
 }
+
+.button {
+    background-color: #8B4513; /* Color de fondo marrón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    font-size: 16px; /* Tamaño de la fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    top: 50%; /* Centrar verticalmente */
+    transform: translateY(-50%); /* Ajustar la posición vertical */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+    display: none;
+}
+
+.button--previous {
+    left: 10px; /* Posicionar a la izquierda */
+}
+
+.button--next {
+    right: 10px; /* Posicionar a la derecha */
+}
+
+.button:hover {
+    background-color: #5a3310; /* Color de fondo al pasar el mouse */
+}
+
 
