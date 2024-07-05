@@ -4,6 +4,7 @@ const itemWidth = item.offsetWidth;
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    checkCarouselButtons('educationList');
     checkCarouselButtons('biList');
     checkCarouselButtons('statsList');
     checkCarouselButtons('dbList');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     checkCarouselButtons('cloudList');
 
     const imageContainer = document.querySelector('.image-container');
+
 
     imageContainer.addEventListener('click', function() {
         // Cambiar dinámicamente el tamaño del contenedor al hacer clic
@@ -35,7 +37,7 @@ function checkCarouselButtons(listId) {
     var prevButton = list.querySelector('.button--previous');
     var nextButton = list.querySelector('.button--next');
 
-    if (items.length > 3) {
+    if (items.length > 2) {
         prevButton.style.display = 'block';
         nextButton.style.display = 'block';
     } else {
